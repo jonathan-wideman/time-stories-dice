@@ -1,0 +1,69 @@
+body
+{
+    font-size: 0;
+    /* display: block; */
+    background-color: #263238;
+}
+
+ul
+{
+    padding-inline-start: 0px;
+}
+
+li
+{
+    list-style: none;
+    /* margin: 0 auto; */
+}
+
+.controls
+{
+    font-size: 2vmin;
+}
+
+.toolbar
+{
+    margin: 0 auto;
+    width: 90vmin;
+    height: 10vmin;
+    background-color: rgb(66, 78, 83);
+    /* box-shadow: black; */
+}
+
+.rollsContainer
+{
+    margin: 0 auto;
+    width: 90vmin;
+    height: 90vmin;
+    background-color: #37474F;
+    /* box-shadow: black; */
+}
+
+/* .rollResult
+{
+    margin: 0 2.5%;
+} */
+
+img.die
+{
+    display: inline-block;
+    /* box-shadow: -2px 2px 2px 0px black; */
+    width: 9%;
+    height: 9%;
+    margin: 0 0.5%;
+    /* width: 32px; */
+    /* height: 32px; */
+    /* margin: 0px, 2px; */
+}
+
+img.die-old
+{
+    filter: grayscale(50%) brightness(75%);
+    display: inline-block;
+    width: 9%;
+    height: 9%;
+    margin: 0 0.5%;
+    /* width: 32px; */
+    /* height: 32px; */
+    /* margin: 0px, 2px; */
+}
