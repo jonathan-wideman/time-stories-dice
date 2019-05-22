@@ -18,9 +18,24 @@ die = {
     ]
 }
 
+numToRoll = 10;
+
+function OnPlusButtonClicked() {
+    numToRoll = Math.min(numToRoll + 1, 10);
+    // console.log(numToRoll)
+    updateRollButton()
+}
+
+function OnMinusButtonClicked() {
+    numToRoll = Math.max(0, numToRoll - 1);
+    // console.log(numToRoll)
+    updateRollButton()
+}
+
 function OnRollButtonClicked() {
     var result = ''
-    RollDice(Array(parseInt(numDice.value)).fill({ ...die })).forEach(die => {
+        // RollDice(Array(parseInt(numDice.value)).fill({...die })).forEach(die => {
+    RollDice(Array(numToRoll).fill({...die })).forEach(die => {
         result += outputImage(die)
     })
     pushResult(result)
@@ -47,7 +62,7 @@ function outputImage(name) {
 function pushResult(result) {
     var li = document.createElement("li");
     li.innerHTML = result
-    // li.className = 'rollResult'
+        // li.className = 'rollResult'
 
     if (rolls.firstChild.children != null) {
         ([...rolls.firstChild.children]).forEach(element => {
@@ -56,4 +71,8 @@ function pushResult(result) {
     }
 
     rolls.prepend(li);
+}
+
+function updateRollButton() {
+    rollButton.innerHTML = "Roll " + numToRoll
 }

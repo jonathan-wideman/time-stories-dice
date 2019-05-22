@@ -24,10 +24,12 @@
             <input type="button" name="rollButton" value="Roll" onclick="OnRollButtonClicked()">
             <input type="text" name="numInput" id="numDice" value="10">
         </div> -->
-        <div class="controls">
-            <span class="toolbar-button">-</span>
-            <span class="toolbar-button">Roll 10</span>
-            <span class="toolbar-button">+</span>
+        <div class="controlsContainer">
+            <!-- <span class="toolbar-button toolbar-button-square"><img class="toolbar-button-icon" src="images/minus.png"></span> -->
+            <span onclick="OnMinusButtonClicked()" class="toolbar-button toolbar-button-square">-</span>
+            <span id="rollButton" onclick="OnRollButtonClicked()" class="toolbar-button">Roll 10</span>
+            <!-- <span class="toolbar-button toolbar-button-square"><img class="toolbar-button-icon" src="images/plus.png"></span> -->
+            <span onclick="OnPlusButtonClicked()" class="toolbar-button toolbar-button-square">+</span>
         </div>
     </div>
 
