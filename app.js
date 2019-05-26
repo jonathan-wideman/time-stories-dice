@@ -31,7 +31,7 @@ function OnPlusButtonClicked() {
 }
 
 function OnMinusButtonClicked() {
-    numToRoll = Math.max(0, numToRoll - 1)
+    numToRoll = Math.max(1, numToRoll - 1)
         // console.log(numToRoll)
     updateRollButton()
 }
