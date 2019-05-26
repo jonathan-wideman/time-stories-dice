@@ -18,17 +18,21 @@ die = {
     ]
 }
 
-numToRoll = 10;
+rollHistoryMax = 20
+
+numToRollMax = 6
+numToRoll = numToRollMax
+updateRollButton()
 
 function OnPlusButtonClicked() {
-    numToRoll = Math.min(numToRoll + 1, 10);
-    // console.log(numToRoll)
+    numToRoll = Math.min(numToRoll + 1, numToRollMax)
+        // console.log(numToRoll)
     updateRollButton()
 }
 
 function OnMinusButtonClicked() {
-    numToRoll = Math.max(0, numToRoll - 1);
-    // console.log(numToRoll)
+    numToRoll = Math.max(0, numToRoll - 1)
+        // console.log(numToRoll)
     updateRollButton()
 }
 
@@ -45,14 +49,14 @@ function RollDice(dice) {
     var results = []
     dice.forEach(die => {
         results.push(chooseRandomFrom(die.faces))
-    });
+    })
     return results
 }
 
 function chooseRandomFrom(items) {
-    var max = items.length;
-    var min = 0;
-    return items[Math.floor(Math.random() * (max - min)) + min];
+    var max = items.length
+    var min = 0
+    return items[Math.floor(Math.random() * (max - min)) + min]
 }
 
 function outputImage(name) {
@@ -60,7 +64,7 @@ function outputImage(name) {
 }
 
 function pushResult(result) {
-    var li = document.createElement("li");
+    var li = document.createElement("li")
     li.innerHTML = result
         // li.className = 'rollResult'
 
@@ -70,7 +74,11 @@ function pushResult(result) {
         })
     }
 
-    rolls.prepend(li);
+    rolls.prepend(li)
+
+    if (rolls.childElementCount > rollHistoryMax) {
+        rolls.removeChild(rolls.lastChild)
+    }
 }
 
 function updateRollButton() {

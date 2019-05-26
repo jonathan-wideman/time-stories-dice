@@ -8,11 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app.js" defer></script>
 
 </head>
 
 <body>
+    <!-- <div class="content"> -->
+    <div class="navbar">
+        <!-- <div>asdfghjkl</div> -->
+    </div>
 
     <div class="rollsContainer">
         <ul id="rolls">
@@ -27,12 +31,12 @@
         <div class="controlsContainer">
             <!-- <span class="toolbar-button toolbar-button-square"><img class="toolbar-button-icon" src="images/minus.png"></span> -->
             <span onclick="OnMinusButtonClicked()" class="toolbar-button toolbar-button-square">-</span>
-            <span id="rollButton" onclick="OnRollButtonClicked()" class="toolbar-button">Roll 10</span>
+            <span id="rollButton" onclick="OnRollButtonClicked()" class="toolbar-button">Roll #</span>
             <!-- <span class="toolbar-button toolbar-button-square"><img class="toolbar-button-icon" src="images/plus.png"></span> -->
             <span onclick="OnPlusButtonClicked()" class="toolbar-button toolbar-button-square">+</span>
         </div>
     </div>
-
+    <!-- </div> -->
 </body>
 
 </html>
