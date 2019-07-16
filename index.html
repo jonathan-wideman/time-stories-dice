@@ -30,10 +30,16 @@
         </div> -->
         <div class="controlsContainer">
             <!-- <span class="toolbar-button toolbar-button-square"><img class="toolbar-button-icon" src="images/minus.png"></span> -->
-            <span onclick="OnMinusButtonClicked()" class="toolbar-button toolbar-button-square">-</span>
+            <button id="minusButton" onclick="OnMinusButtonClicked()" class="toolbar-button toolbar-button-square">-</button>
             <span id="rollButton" onclick="OnRollButtonClicked()" class="toolbar-button">Roll #</span>
             <!-- <span class="toolbar-button toolbar-button-square"><img class="toolbar-button-icon" src="images/plus.png"></span> -->
-            <span onclick="OnPlusButtonClicked()" class="toolbar-button toolbar-button-square">+</span>
+            <button id="plusButton" onclick="OnPlusButtonClicked()" class="toolbar-button toolbar-button-square">+</button>
+
+            <span class="toolbar-spacer"></span>
+            <!-- <span onclick="OnTestDieButtonClicked()" class="toolbar-button toolbar-button-square"><img id="testDieButtonImage" class="die-button" src="images/singleHit.png"></span>
+            <span onclick="OnTimeDieButtonClicked()" class="toolbar-button toolbar-button-square"><img id="timeDieButtonImage" class="die-button" src="images/tu1.png"></span> -->
+            <span onclick="OnTestDieButtonClicked()"><img id="testDieButtonImage" class="die-button" src="images/singleHit.png"></span>
+            <span onclick="OnTimeDieButtonClicked()"><img id="timeDieButtonImage" class="die-button" src="images/tu1.png"></span>
         </div>
     </div>
     <!-- </div> -->
