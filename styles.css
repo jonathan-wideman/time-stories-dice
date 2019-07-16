@@ -1,10 +1,18 @@
 /* colors: https://materialuicolors.co/ */
 
+
+/* html {
+    line-height: 0;
+} */
+
 body {
+    /* font-size: 0; */
+    /* display: block; */
     background-color: #263238;
 }
 
 ul {
+    /* width: 100%; */
     margin-block-start: 0;
     margin-block-end: 0;
     padding-inline-start: 0;
@@ -45,11 +53,15 @@ li {
     height: 85vh;
     overflow: hidden;
     background-color: #37474F;
+    /* box-shadow: black; */
 }
 
 .toolbar {
     position: relative;
     z-index: 90;
+    /* justify-content: center; */
+    /* display: inline-flex; */
+    /* flex-direction: column; */
     margin: 0 auto;
     width: 90vw;
     height: 10vh;
@@ -61,7 +73,14 @@ li {
     display: inline-flex;
     justify-content: center;
     padding: 1.5vh 0;
+    /* padding: 0 auto; */
+    /* margin: auto; */
+    /* width: 30vh; */
+    /* height: 100%; */
     width: 100%;
+    /* flex: auto; */
+    /* background-color: magenta; */
+    /* font-size: 2vh; */
 }
 
 .toolbar-button {
@@ -71,9 +90,9 @@ li {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 4vh;
     font-weight: bold;
-    box-shadow: 0 0 1vh 0 #00000050;
+    box-shadow: 0 0 1vh 0 #00000050, inset 0.5vh 0.5vh 0.5vh 0 #FFFFFF20, inset -0.5vh -0.5vh 0.5vh 0 #00000020;
+    /* text-shadow: 0 0 1vh 1vh #000000ff; */
     background-color: #607D8B;
-    border: none;
     border-radius: 1.5vh;
     padding: 0 1vh;
     width: 20vh;
@@ -89,19 +108,9 @@ li {
     width: 7vh;
 }
 
-.toolbar-button:hover {
-    color: #CFD8DC;
-    background-color: #546E7A;
-}
-
 .toolbar-button:active {
     color: #CFD8DC;
     background-color: #90A4AE;
-}
-
-.toolbar-button:disabled {
-    color: rgb(78, 82, 83);
-    background-color: rgb(49, 62, 68);
 }
 
 .toolbar-button-icon {
@@ -110,17 +119,25 @@ li {
     height: 3vh;
 }
 
-.toolbar-spacer {
-    display: inline-block;
-    width: 15vh;
-    height: 7vh;
-}
+
+/* .rollResult
+{
+    margin: 0 2.5%;
+
+} */
 
 img.die {
     display: inline-block;
+    /* box-shadow: -2px 2px 2px 0px black; */
     width: calc(calc(100% - 3vmin) / 6);
     height: calc(calc(100% - 3vmin) / 6);
     margin: 1vmin 0.25vmin;
+    /* width: 9%;
+    height: 9%;
+    margin: 0 0.5%; */
+    /* width: 32px; */
+    /* height: 32px; */
+    /* margin: 0px, 2px; */
 }
 
 img.die-old {
@@ -129,18 +146,10 @@ img.die-old {
     width: calc(calc(100% - 3vmin) / 6);
     height: calc(calc(100% - 3vmin) / 6);
     margin: 1vmin 0.25vmin;
-}
-
-img.die-button {
-    box-shadow: 0 0 2vh #ffffffaa;
-    width: 7vh;
-    height: 7vh;
-    margin: 0 0.25vh;
-}
-
-img.die-button-inactive {
-    filter: grayscale(50%) brightness(75%);
-    width: 7vh;
-    height: 7vh;
-    margin: 0 0.25vh;
+    /* width: 9%;
+    height: 9%;
+    margin: 0 0.5%; */
+    /* width: 32px; */
+    /* height: 32px; */
+    /* margin: 0px, 2px; */
 }
