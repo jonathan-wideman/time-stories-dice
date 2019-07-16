@@ -13,9 +13,7 @@
 </head>
 
 <body>
-    <!-- <div class="content"> -->
     <div class="navbar">
-        <!-- <div>asdfghjkl</div> -->
     </div>
 
     <div class="rollsContainer">
@@ -24,25 +22,17 @@
     </div>
 
     <div class="toolbar">
-        <!-- <div class="controls">
-            <input type="button" name="rollButton" value="Roll" onclick="OnRollButtonClicked()">
-            <input type="text" name="numInput" id="numDice" value="10">
-        </div> -->
         <div class="controlsContainer">
-            <!-- <span class="toolbar-button toolbar-button-square"><img class="toolbar-button-icon" src="images/minus.png"></span> -->
             <button id="minusButton" onclick="OnMinusButtonClicked()" class="toolbar-button toolbar-button-square">-</button>
             <span id="rollButton" onclick="OnRollButtonClicked()" class="toolbar-button">Roll #</span>
-            <!-- <span class="toolbar-button toolbar-button-square"><img class="toolbar-button-icon" src="images/plus.png"></span> -->
             <button id="plusButton" onclick="OnPlusButtonClicked()" class="toolbar-button toolbar-button-square">+</button>
 
             <span class="toolbar-spacer"></span>
-            <!-- <span onclick="OnTestDieButtonClicked()" class="toolbar-button toolbar-button-square"><img id="testDieButtonImage" class="die-button" src="images/singleHit.png"></span>
             <span onclick="OnTimeDieButtonClicked()" class="toolbar-button toolbar-button-square"><img id="timeDieButtonImage" class="die-button" src="images/tu1.png"></span> -->
             <span onclick="OnTestDieButtonClicked()"><img id="testDieButtonImage" class="die-button" src="images/singleHit.png"></span>
             <span onclick="OnTimeDieButtonClicked()"><img id="timeDieButtonImage" class="die-button" src="images/tu1.png"></span>
         </div>
     </div>
-    <!-- </div> -->
 </body>
 
 </html>

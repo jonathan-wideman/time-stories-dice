@@ -45,19 +45,16 @@ updateControls()
 
 function OnPlusButtonClicked() {
     numToRoll = Math.min(numToRoll + 1, numToRollMax)
-        // console.log(numToRoll)
     updateControls()
 }
 
 function OnMinusButtonClicked() {
     numToRoll = Math.max(1, numToRoll - 1)
-        // console.log(numToRoll)
     updateControls()
 }
 
 function OnRollButtonClicked() {
     var result = ''
-        // RollDice(Array(parseInt(numDice.value)).fill({...dieToRoll })).forEach(dieToRoll => {
     if (dieToRoll == testDie) {
         RollDice(Array(numToRoll).fill({...dieToRoll })).forEach(dieToRoll => {
             result += outputDie(dieToRoll)
@@ -101,7 +98,6 @@ function outputDie(name, className = 'die') {
 function pushResult(result) {
     var li = document.createElement("li")
     li.innerHTML = result
-        // li.className = 'rollResult'
 
     if (rolls.firstChild.children != null) {
         ([...rolls.firstChild.children]).forEach(element => {
