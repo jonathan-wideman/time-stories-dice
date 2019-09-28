@@ -22,27 +22,40 @@ li {
 .content {
     position: relative;
     margin: 0 auto;
-    width: 90vw;
+    width: 100vw;
     height: 100vh;
     background-color: #37474F;
 }
 
-.navbar {
+.shield-list-bar {
     position: relative;
     z-index: 90;
     margin: 0 auto;
-    width: 90vw;
-    height: 5vh;
+    width: 100vw;
+    height: 15vh;
     background-color: rgba(66, 78, 83, 50);
     box-shadow: 0 1vh 1vh 0 #00000050;
 }
 
-.rollsContainer {
+.shield-list {
+    height: 6vh;
+    padding: 1vh;
+}
+
+.shield-list-top {
+    padding-bottom: 0.5vh;
+}
+
+.shield-list-bottom {
+    padding-top: 0.5vh;
+}
+
+.rolls-container {
     position: relative;
     z-index: 10;
     margin: 0 auto;
-    width: 90vw;
-    height: 85vh;
+    width: 100vw;
+    height: 68vh;
     overflow: hidden;
     background-color: #37474F;
 }
@@ -51,16 +64,16 @@ li {
     position: relative;
     z-index: 90;
     margin: 0 auto;
-    width: 90vw;
-    height: 10vh;
+    width: 100vw;
+    height: 20vh;
     background-color: rgba(66, 78, 83, 50);
     box-shadow: 0 -1vh 1vh 0 #00000050;
 }
 
-.controlsContainer {
+.controls-container {
     display: inline-flex;
     justify-content: center;
-    padding: 1.5vh 0;
+    padding: 0.75vh 0 0;
     width: 100%;
 }
 
@@ -110,12 +123,6 @@ li {
     height: 3vh;
 }
 
-.toolbar-spacer {
-    display: inline-block;
-    width: 15vh;
-    height: 7vh;
-}
-
 img.die {
     display: inline-block;
     width: calc(calc(100% - 3vmin) / 6);
@@ -143,4 +150,50 @@ img.die-button-inactive {
     width: 7vh;
     height: 7vh;
     margin: 0 0.25vh;
+}
+
+img.shield-button {
+    border-radius: 3vh;
+    box-shadow: 0 0 5vh #ffffff77 inset, 0 0 2vh #ffffff99;
+    width: 7vh;
+    height: 7vh;
+    margin: 0h;
+}
+
+img.shield-button-inactive {
+    border-radius: 3vh;
+    filter: grayscale(50%) brightness(75%);
+    width: 7vh;
+    height: 7vh;
+    margin: 0;
+}
+
+.shield-container {
+    position: relative;
+    display: inline-block;
+    width: 1.5vh;
+    height: 6vh;
+}
+
+img.shield {
+    position: absolute;
+    display: inline-block;
+    width: 6vh;
+    height: 6vh;
+    margin: 0;
+    padding: 0;
+}
+
+.shield-count-display {
+    position: relative;
+    top: -1.5vh;
+    display: inline-block;
+    width: 10vh;
+    height: 100%;
+    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 4vh;
+    font-weight: bold;
+    text-align: right;
+    line-height: 5.5vh;
 }

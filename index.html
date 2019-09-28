@@ -13,26 +13,41 @@
 </head>
 
 <body>
-    <div class="navbar">
+
+    <div class="shield-list-bar">
+        <div id="shieldListWhite" class="shield-list shield-list-top">
+            <span class="shield-container"><img class="shield" src="images/shield-white.png"></span>
+            <span id="shieldCountWhite" class="shield-count-display"></span>
+        </div>
+        <div id="shieldListRed" class="shield-list shield-list-bottom">
+            <span class="shield-container"><img class="shield" src="images/shield-red.png"></span>
+            <span id="shieldCountRed" class="shield-count-display"></span>
+        </div>
     </div>
 
-    <div class="rollsContainer">
+    <div class="rolls-container">
         <ul id="rolls">
         </ul>
     </div>
 
     <div class="toolbar">
-        <div class="controlsContainer">
+        <div class="controls-container">
+            <span onclick="OnWhiteShieldsButtonClicked()"><img id="whiteShieldsButtonImage" class="die-button"
+                    src="images/shield-white.png"></span>
+            <span onclick="OnRedShieldsButtonClicked()"><img id="redShieldsButtonImage" class="die-button"
+                    src="images/shield-red.png"></span>
+            <span onclick="OnTestDieButtonClicked()"><img id="testDieButtonImage" class="die-button"
+                    src="images/singleHit.png"></span>
+            <span onclick="OnTimeDieButtonClicked()"><img id="timeDieButtonImage" class="die-button"
+                    src="images/tu1.png"></span>
+        </div>
+        <div class="controls-container">
             <button id="minusButton" onclick="OnMinusButtonClicked()" class="toolbar-button toolbar-button-square">-</button>
-            <span id="rollButton" onclick="OnRollButtonClicked()" class="toolbar-button">Roll #</span>
+            <button id="rollButton" onclick="OnRollButtonClicked()" class="toolbar-button">Roll #</button>
             <button id="plusButton" onclick="OnPlusButtonClicked()" class="toolbar-button toolbar-button-square">+</button>
-
-            <span class="toolbar-spacer"></span>
-
-            <span onclick="OnTestDieButtonClicked()"><img id="testDieButtonImage" class="die-button" src="images/singleHit.png"></span>
-            <span onclick="OnTimeDieButtonClicked()"><img id="timeDieButtonImage" class="die-button" src="images/tu1.png"></span>
         </div>
     </div>
+
 </body>
 
 </html>

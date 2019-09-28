@@ -41,16 +41,95 @@ rollHistoryMax = 20
 dieToRoll = testDie
 numToRollMax = 6
 numToRoll = numToRollMax
+
+shields = {
+    white: 7,
+    red: 4
+}
+
+modes = {
+    TEST_DICE: 'test',
+    TIME_DIE: 'time',
+    WHITE_SHIELDS: 'white_shields',
+    RED_SHIELDS: 'red_shields'
+}
+mode = modes.TEST_DICE
+
 updateControls()
+updateShields()
+
+function clamp(value, min, max) {
+    return Math.max(min, Math.min(value, max))
+}
+
+
+
+function adjustShields(type, amount) {
+    shields[type] = clamp(shields[type] + amount, 0, 15)
+    updateShields()
+    return shields[type]
+}
+
+function updateShields() {
+    // --- White Shields ---
+    // remove existing shields
+    while (shieldListWhite.firstElementChild.className == 'shield-container') {
+        shieldListWhite.removeChild(shieldListWhite.firstChild)
+    }
+    // add current number of shields
+    for (let index = 0; index < shields.white; index++) {
+        var shield = document.createElement('span')
+        shield.className = 'shield-container'
+        shield.innerHTML = '<img class="shield" src="images/shield-white.png">'
+        shieldListWhite.prepend(shield)
+    }
+    // update shield count display
+    if (shields.white > 0) {
+        shieldCountWhite.innerHTML = shields.white
+    } else {
+        shieldCountWhite.innerHTML = ""
+    }
+
+    // --- Red Shields ---
+    // remove existing shields
+    while (shieldListRed.firstElementChild.className == 'shield-container') {
+        shieldListRed.removeChild(shieldListRed.firstChild)
+    }
+    // add current number of shields
+    for (let index = 0; index < shields.red; index++) {
+        var shield = document.createElement('span')
+        shield.className = 'shield-container'
+        shield.innerHTML = '<img class="shield" src="images/shield-red.png">'
+        shieldListRed.prepend(shield)
+    }
+    // update shield count display
+    if (shields.red > 0) {
+        shieldCountRed.innerHTML = shields.red
+    } else {
+        shieldCountRed.innerHTML = ""
+    }
+}
 
 function OnPlusButtonClicked() {
-    numToRoll = Math.min(numToRoll + 1, numToRollMax)
-    updateControls()
+    if (mode == modes.WHITE_SHIELDS) {
+        adjustShields('white', 1)
+    } else if (mode == modes.RED_SHIELDS) {
+        adjustShields('red', 1)
+    } else {
+        numToRoll = Math.min(numToRoll + 1, numToRollMax)
+        updateControls()
+    }
 }
 
 function OnMinusButtonClicked() {
-    numToRoll = Math.max(1, numToRoll - 1)
-    updateControls()
+    if (mode == modes.WHITE_SHIELDS) {
+        adjustShields('white', -1)
+    } else if (mode == modes.RED_SHIELDS) {
+        adjustShields('red', -1)
+    } else {
+        numToRoll = Math.max(1, numToRoll - 1)
+        updateControls()
+    }
 }
 
 function OnRollButtonClicked() {
@@ -68,12 +147,22 @@ function OnRollButtonClicked() {
 }
 
 function OnTestDieButtonClicked() {
-    dieToRoll = testDie
+    mode = modes.TEST_DICE
     updateControls()
 }
 
 function OnTimeDieButtonClicked() {
-    dieToRoll = timeDie
+    mode = modes.TIME_DIE
+    updateControls()
+}
+
+function OnWhiteShieldsButtonClicked() {
+    mode = modes.WHITE_SHIELDS
+    updateControls()
+}
+
+function OnRedShieldsButtonClicked() {
+    mode = modes.RED_SHIELDS
     updateControls()
 }
 
@@ -113,21 +202,87 @@ function pushResult(result) {
 }
 
 function updateControls() {
-    if (dieToRoll == testDie) {
-        testDieButtonImage.className = "die-button"
-        timeDieButtonImage.className = "die-button-inactive"
+    // if (dieToRoll == testDie) {
+    //     testDieButtonImage.className = "die-button"
+    //     timeDieButtonImage.className = "die-button-inactive"
 
-        rollButton.innerHTML = "Roll " + numToRoll
+    //     rollButton.innerHTML = "Roll " + numToRoll
 
-        minusButton.removeAttribute("disabled")
-        plusButton.removeAttribute("disabled")
-    } else {
-        testDieButtonImage.className = "die-button-inactive"
-        timeDieButtonImage.className = "die-button"
+    //     minusButton.removeAttribute("disabled")
+    //     plusButton.removeAttribute("disabled")
+    // } else {
+    //     testDieButtonImage.className = "die-button-inactive"
+    //     timeDieButtonImage.className = "die-button"
 
-        rollButton.innerHTML = "Roll"
+    //     rollButton.innerHTML = "Roll"
 
-        minusButton.setAttribute("disabled", "disabled")
-        plusButton.setAttribute("disabled", "disabled")
+    //     minusButton.setAttribute("disabled", "disabled")
+    //     plusButton.setAttribute("disabled", "disabled")
+    // }
+
+    switch (mode) {
+        case modes.TEST_DICE:
+
+            dieToRoll = testDie
+
+            testDieButtonImage.className = "die-button"
+            timeDieButtonImage.className = "die-button-inactive"
+            whiteShieldsButtonImage.className = "shield-button-inactive"
+            redShieldsButtonImage.className = "shield-button-inactive"
+
+            rollButton.innerHTML = "Roll " + numToRoll
+
+            rollButton.removeAttribute("disabled")
+            minusButton.removeAttribute("disabled")
+            plusButton.removeAttribute("disabled")
+
+            break
+
+        case modes.TIME_DIE:
+
+            dieToRoll = timeDie
+
+            testDieButtonImage.className = "die-button-inactive"
+            timeDieButtonImage.className = "die-button"
+            whiteShieldsButtonImage.className = "shield-button-inactive"
+            redShieldsButtonImage.className = "shield-button-inactive"
+
+            rollButton.innerHTML = "Roll"
+
+            rollButton.removeAttribute("disabled")
+            minusButton.setAttribute("disabled", "disabled")
+            plusButton.setAttribute("disabled", "disabled")
+
+            break
+
+        case modes.WHITE_SHIELDS:
+
+            testDieButtonImage.className = "die-button-inactive"
+            timeDieButtonImage.className = "die-button-inactive"
+            whiteShieldsButtonImage.className = "shield-button"
+            redShieldsButtonImage.className = "shield-button-inactive"
+
+            rollButton.innerHTML = "Roll"
+
+            rollButton.setAttribute("disabled", "disabled")
+            minusButton.removeAttribute("disabled")
+            plusButton.removeAttribute("disabled")
+
+            break
+
+        case modes.RED_SHIELDS:
+
+            testDieButtonImage.className = "die-button-inactive"
+            timeDieButtonImage.className = "die-button-inactive"
+            whiteShieldsButtonImage.className = "shield-button-inactive"
+            redShieldsButtonImage.className = "shield-button"
+
+            rollButton.innerHTML = "Roll"
+
+            rollButton.setAttribute("disabled", "disabled")
+            minusButton.removeAttribute("disabled")
+            plusButton.removeAttribute("disabled")
+
+            break
     }
 }
