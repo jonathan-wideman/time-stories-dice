@@ -43,8 +43,8 @@ numToRollMax = 6
 numToRoll = numToRollMax
 
 shields = {
-    white: 7,
-    red: 4
+    white: 0,
+    red: 0
 }
 
 modes = {
